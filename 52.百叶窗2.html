@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 300px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            width: 800px;
+            height: 300px;
+            list-style: none;
+            background: black;
+        }
+
+        .box ul li {
+            position: absolute;
+        }
+
+        ul li:nth-child(2) {
+            left: 160px;
+        }
+
+        ul li:nth-child(3) {
+            left: 320px;
+        }
+
+        ul li:nth-child(4) {
+            left: 480px;
+        }
+
+        ul li:nth-child(5) {
+            left: 640px;
+        }
+
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/0.jpg" alt=""></li>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+</div>
+<script>
+    /**
+     * 0.下标  index   0       1       2       3       4
+     *             left
+     * 1.初始状态      0       160     320     480     640     160*index
+     *
+     * 2.left向左运动  0       60      120       180    240     60*index
+     *
+     * 3.left向右运动  0       560      620     680     740   560+（60*(index-1)）
+     *
+     * 4.谁向左？ ：当前点击的li及之前的li
+     *   谁向右？ :当前点击之后的li向右
+     */
+    var lis = $('.box li');
+    var index = 0;
+    lis.mouseenter(function () {
+        //获取当前图片的下标
+        index = $(this).index();
+        lis.stop(true);
+        $(this).siblings().fadeTo(100,0.5);
+        $(this).stop().fadeTo(100,1);
+        lis.each(function (i) {
+            if (i <= index) {
+                lis.eq(i).animate({left: i * 60}, 500);
+            } else {
+                lis.eq(i).animate({left: (i - 1) * 60 + 560}, 500);
+            }
+        })
+    }).mouseleave(function () {
+        lis.stop(true);
+        lis.fadeTo(100,1);
+        lis.each(function (i) {
+            lis.eq(i).animate({left:160*i},500);
+        });
+    })
+
+
+</script>
+</body>
+</html>

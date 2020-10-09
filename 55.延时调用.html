@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>延时调用</title>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <style>
+        .box {
+            width: 180px;
+            height: 900px;
+        }
+
+        img {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="images/0.jpg" alt="">
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/aaa.jpg" alt="">
+    <img src="images/bbb.jpg" alt="">
+    <img src="images/ccc.jpg" alt="">
+    <img src="images/ddd.jpg" alt="">
+    <img src="images/eee.jpg" alt="">
+</div>
+<script>
+    $('.box img').each(function (index) {
+        //随机生成坐标
+        var left = Math.floor(Math.random() * 1300);
+        var top = Math.floor(Math.random() * 700);
+        //将随机生成的坐标给animate
+        $(this).delay(1000 * index).animate({top: top, left: left}).fadeIn()
+    })
+
+
+</script>
+</body>
+</html>

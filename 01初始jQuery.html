@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01.初始jQuery</title>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+
+</head>
+<body>
+<div></div>
+<div class="box1"></div>
+<div id="box2"></div>
+<script>
+    // window.onload = function (ev) {
+    //     //利用原生js查找dom
+    //     var div0 = document.getElementsByTagName('div')[0];
+    //     var div1 = document.getElementsByClassName('box1')[0];
+    //     var div2 = document.getElementById('box2');
+    //     console.log(div1);
+    //     console.log(div2);
+    //     div0.style.backgroundColor = 'yellow';
+    //     div1.style.backgroundColor = 'red';
+    //     div2.style.backgroundColor ='green';
+    // }
+
+    $(function () {
+        var $div0 = $('div');
+        var $div1 = $('.box1');
+        var $div2 = $('#box2');
+        // console.log($div0,$div1,$div2)
+        $div0.css({
+            backgroundColor: 'red',
+            width: '200px',
+            height: '200px'
+        });
+        $div1.css({
+            backgroundColor: 'blue',
+        });
+        $div2.css({
+            backgroundColor: 'yellow',
+        })
+
+    })
+</script>
+</body>
+</html>

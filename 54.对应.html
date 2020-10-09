@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对应</title>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            border: 1px solid deeppink;
+        }
+
+        p {
+            height: 100px;
+            width: 100px;
+            background: orange;
+            float: left;
+            margin: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box1">
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+<div class="box2">
+    <p></p>
+    <p></p>
+    <p></p>
+</div>
+<script>
+    $('.box1 p').mouseenter(function () {
+        var index = $(this).index();
+        $(this).css('backgroundColor', 'pink').siblings().css('backgroundColor', '');
+        $(this).parents('.box1').siblings().children().eq(index).css('backgroundColor', 'pink').siblings().css('backgroundColor', '');
+    })
+
+
+</script>
+</body>
+</html>

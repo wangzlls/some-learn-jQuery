@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无限循环滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 600px;
+            height: 161px;
+            border: 1px solid cornflowerblue;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+            width: 1800px;
+            height: 161px;
+            background: black;
+        }
+
+        ul > li {
+            float: left;
+        }
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 0.定义变量保存偏移位
+            var offset = 0;
+            //让图片滚动
+            var timer;
+            function autoPlay() {
+                timer = setInterval(function () {
+                    offset += -10;
+                    if (offset <= -1200) {
+                        offset = 0
+                    }
+                    $('ul').css('marginLeft', offset)
+                }, 50);
+            }
+            autoPlay();
+
+
+            //监听li的移入和移出事件
+            $('li').hover(function () {
+                // 停止滚动
+                clearInterval(timer);
+            // 给非当前选中添加蒙版
+                $(this).siblings().fadeTo(500,0.5);
+            // 去除当前选中的蒙版
+                $(this).fadeTo(500,1)
+            },function () {
+                //继续滚动
+                autoPlay();
+                // 去除所有蒙版
+                $('li').fadeTo(500,1)
+            })
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+<!--        设置6张图片，后两张是重复1，2图片，避免在1>2>3>4>1>2出现出现闪现到第一张的效果-->
+        <li><img src="images/a.jpg" alt=""></li>
+        <li><img src="images/b.jpg" alt=""></li>
+        <li><img src="images/c.jpg" alt=""></li>
+        <li><img src="images/d.jpg" alt=""></li>
+        <li><img src="images/a.jpg" alt=""></li>
+        <li><img src="images/b.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

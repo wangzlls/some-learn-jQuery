@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr和prop的练习</title>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+                var btn = document.getElementsByTagName('button')[0];
+                btn.onclick =function () {
+                    var input = document.getElementsByTagName('input')[0];
+                    var text = input.value;
+                    $('img').attr('src',text);
+                    // $('img').prop('src',text);
+                    /*
+                    此处不是返回true/false，所以用attr
+                    * */
+
+                    //https://ossgw.alicdn.com/alp/1572809375526-200-76.png
+                }
+        });
+    </script>
+</head>
+<body>
+<input type="text">
+<button>切换图片</button>
+<br>
+<img src="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white-d0c9fe2af5.png" alt="">
+</body>
+</html>

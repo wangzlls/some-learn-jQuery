@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百叶窗</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 800px;
+            height: 300px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            width: 800px;
+            height: 300px;
+            list-style: none;
+            background: black;
+        }
+
+        .box ul li {
+            position: absolute;
+        }
+
+        ul li:nth-child(2) {
+            left: 160px;
+        }
+
+        ul li:nth-child(3) {
+            left: 320px;
+        }
+
+        ul li:nth-child(4) {
+            left: 480px;
+        }
+
+        ul li:nth-child(5) {
+            left: 640px;
+        }
+
+        .cover {
+            width: 100%;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+        }
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var lis = $('.box li');
+            lis.mouseleave(function () {
+                $(lis).stop().fadeTo(30, 1);
+                lis.eq(1).animate({'left': 160}, 500);
+                lis.eq(2).animate({'left': 320}, 500);
+                lis.eq(3).animate({'left': 480}, 500);
+                lis.eq(4).animate({'left': 640}, 500);
+            });
+            lis.eq(0).mouseenter(function () {
+                lis.stop(true);
+                $(this).fadeTo(20, 1);
+                lis.eq(1).animate({'left': 560}, 500);
+                lis.eq(2).animate({'left': 620}, 500);
+                lis.eq(3).animate({'left': 680}, 500);
+                lis.eq(4).animate({'left': 740}, 500);
+                $(this).siblings().fadeTo(300, 0.5);
+            });
+            lis.eq(1).mouseenter(function () {
+                lis.stop(true);
+                $(this).fadeTo(20, 1);
+                lis.eq(1).animate({'left':60},500);
+                lis.eq(2).animate({'left':620},500);
+                lis.eq(3).animate({'left':680},500);
+                lis.eq(4).animate({'left':740},500);
+                $(this).siblings().fadeTo(300, 0.5);
+            });
+            lis.eq(2).mouseenter(function () {
+                lis.stop(true);
+                $(this).fadeTo(20, 1);
+                lis.eq(1).animate({'left':60},500);
+                lis.eq(2).animate({'left':120},500);
+                lis.eq(3).animate({'left':680},500);
+                lis.eq(4).animate({'left':740},500);
+                $(this).siblings().fadeTo(300, 0.5);
+            });
+            lis.eq(3).mouseenter(function () {
+                lis.stop(true);
+                $(this).fadeTo(20, 1);
+                lis.eq(1).animate({'left':60},500);
+                lis.eq(2).animate({'left':120},500);
+                lis.eq(3).animate({'left':180},500);
+                lis.eq(4).animate({'left':740},500);
+                $(this).siblings().fadeTo(300, 0.5);
+            });
+            lis.eq(4).mouseenter(function () {
+                lis.stop(true);
+                $(this).fadeTo(20, 1);
+                lis.eq(1).animate({'left':60},500);
+                lis.eq(2).animate({'left':120},500);
+                lis.eq(3).animate({'left':180},500);
+                lis.eq(4).animate({'left':240},500);
+                $(this).siblings().fadeTo(300, 0.5);
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/0.jpg" alt=""></li>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+    </ul>
+</div>
+</body>
+</html>

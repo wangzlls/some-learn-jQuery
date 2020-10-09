@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery自定义动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background: coral;
+            margin-top: 10px;
+        }
+
+        .two {
+            background: aquamarine;
+        }
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            /*
+                第一个参数: 接收一个对象, 可以在对象中修改属性
+                第二个参数: 指定动画时长
+                第三个参数: 指定动画节奏, 默认就是swing(快>慢>快) linear（一直匀速）
+                第四个参数: 动画执行完毕之后的回调函数
+                */
+            $('button').eq(0).click(function () {
+                // $('.one').animate({
+                //     width:700
+                // },1000,function () {
+                //     alert('修改宽度为500px')
+                //
+                // })
+
+                $('.one').animate({
+                    marginLeft:700
+                },5000,function () {
+                    // alert('marginLeft修改为500px')
+                });
+                $('.two').animate({
+                    marginLeft: 700
+                },5000,'linear',function () {})
+
+
+            });
+
+            $('button').eq(1).click(function () {
+                $('.one').animate({
+                    //在原width基础上100px
+                    width:'+=100'
+                },1000)
+            });
+
+            $('button').eq(2).click(function () {
+                // $('.one').animate({
+                //     width: 'hide'
+                // },1000)
+                $('.one').animate({
+                    width: 'toggle'
+                },1000);
+                $('.two').stop().animate({
+                    height: 'toggle'
+                },1000)
+            });
+        });
+    </script>
+</head>
+<body>
+<button>操作属性</button>
+<button>累加属性</button>
+<button>关键字</button>
+<div class="one"></div>
+<div class="two"></div>
+</body>
+</html>

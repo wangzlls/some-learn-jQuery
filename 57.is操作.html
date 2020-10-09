@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>is操作</title>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var lis = $('li');
+            // console.log(lis);
+            $('button').eq(0).click(function () {
+                lis.each(function (index) {
+                    if (lis.eq(index).children('input').prop('checked')) {
+                        $('.box3 ul').append(lis.eq(index));
+                        lis.eq(index).children('input').attr('checked',false)
+                    }
+                });
+            });
+            $('button').eq(1).click(function () {
+                lis.each(function (index) {
+                    if (lis.eq(index).children('input').prop('checked')) {
+                        $('.box1 ul').prepend(lis.eq(index));
+                        lis.eq(index).children('input').attr('checked',false)
+                    }
+                });
+            })
+        });
+    </script>
+    <style>
+        .box1 {
+            width: 150px;
+            height: 300px;
+            border: 1px solid red;
+            /*display: inline-block;*/
+            margin-right: 20px;
+            float: left;
+            /*text-align: left;*/
+        }
+        ul{
+            text-align: left;
+        }
+
+        .box2 {
+            width: 150px;
+            height: 300px;
+            border: 1px solid red;
+            /*display: inline-block;*/
+            margin-right: 20px;
+            float: left;
+            text-align: center;
+        }
+        button{
+            margin-top: 50px;
+        }
+
+        .box3 {
+            width: 150px;
+            height: 300px;
+            border: 1px solid red;
+            display: inline-block;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box1">
+    <ul>
+        <li>蒸熊掌<input type="checkbox" /></li>
+        <li>蒸鹿尾儿<input type="checkbox" /></li>
+        <li>烧花鸭<input type="checkbox"/></li>
+        <li>烧雏鸡<input type="checkbox"/></li>
+        <li>松花腊肉<input type="checkbox"/></li>
+        <li>炉猪<input type="checkbox"/></li>
+        <li>一盆米饭<input type="checkbox"/></li>
+    </ul>
+</div>
+<div class="box2">
+    <button>>>>>>>>>></button>
+    <button><<<<<<<<<</button>
+</div>
+<div class="box3">
+    <ul>
+
+    </ul>
+</div>
+
+</body>
+</html>

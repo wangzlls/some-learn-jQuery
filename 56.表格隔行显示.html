@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<table align="center" border="1" width="600" style="text-align: center" cellspacing="0">
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+    <tr>
+        <td><span>11234567</span></td>
+        <td><span>21234567</span></td>
+        <td><span>31234567</span></td>
+        <td><span>41234567</span></td>
+        <td><span>51234567</span></td>
+        <td><span>61234567</span></td>
+        <td><span>71234567</span></td>
+    </tr>
+</table>
+<script>
+    $('td').mouseenter(function () {
+        var index = $(this).index();
+        console.log(index);
+        $('tr').each(function () {
+            $(this).children().eq(index).css('backgroundColor','pink').siblings().css('backgroundColor','')
+        })
+
+    })
+
+
+
+</script>
+</body>
+</html>

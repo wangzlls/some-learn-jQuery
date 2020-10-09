@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery位置和尺寸操作的方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background: hotpink;
+            border: 50px solid wheat;
+            margin-left: 50px;
+            position: relative;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background: blueviolet;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var btns = document.getElementsByTagName('button');
+            //获取按钮
+            btns[0].onclick = function () {
+                //此处都没有给参数
+                //获取元素的宽度
+                // console.log('father-width:'+$('.father').width());
+                // console.log('father-height:'+$('.father').height());
+                // //获取第一个匹配元素内部区域高度（包括补白、不包括边框）。
+                // console.log('father-innerHeight:'+$('.father').innerHeight());
+                // console.log('father-innerWidth:'+$('.father').innerWidth());
+                // //获取第一个匹配元素外部高度（默认包括补白和边框）。
+                // console.log('father-outerHeight:'+$('.father').outerHeight());
+                // console.log('father-outerWidth:'+$('.father').outerWidth());
+
+
+                // offset([coordinates])
+                // 作用: 获取元素距离窗口的偏移位
+                // console.log($('.father').offset().left);
+                // console.log($('.son').offset().left);
+
+                // position()获取匹配元素相对父元素的偏移,不能设置。
+                console.log($('.son').position().left);
+                console.log($('.father').position().left);
+
+
+            };
+            //设置按钮
+            btns[1].onclick = function () {
+                //设置宽度
+                // $('.father').width('500px');
+                // $('.father').height('500px');
+                // //设置第一个匹配元素内部区域高度（包括补白、不包括边框）。
+                // $('.father').innerHeight('500px');
+                // $('.father').innerWidth('500px');
+                // //获取第一个匹配元素外部高度（默认包括补白和边框）。
+                // $('.father').outerHeight('500px');
+                // $('.father').outerWidth('500px');
+
+
+                //设置元素距离窗口的偏移位
+                // $('.father').offset({
+                //     left: 500
+                // })
+
+            };
+
+        });
+    </script>
+</head>
+<body>
+<div class="father">
+    <div class="son"></div>
+</div>
+<button>获取</button>
+<button>设置</button>
+</body>
+</html>

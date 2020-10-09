@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖动</title>
+    <style>
+        .box2{
+            width: 800px;
+            height: 800px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: orange;
+            position: absolute;
+        }
+
+    </style>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.easie.js"></script>
+
+
+</head>
+<body>
+<div class="box2">
+    <div class="box"></div>
+</div>
+<script>
+    $(".box").draggable({containment:'parent'})
+    //此处是自定义一个缓动效果，在github中有
+    // $('.box').animate({top:500,left:500},$.easie(0,1,0,1))
+</script>
+</body>
+</html>

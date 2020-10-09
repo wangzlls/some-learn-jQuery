@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .box {
+            width: 672px;
+            height: 320px;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .imgs {
+            position: relative;
+            width: 672px;
+            height: 320px;
+        }
+
+        .box .imgs li {
+            position: absolute;
+            display: none;
+        }
+
+        .box .imgs li.select {
+            display: block;
+        }
+
+        .btns span {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            top: 137.5px;
+        }
+
+        .btns .left {
+            left: 10px;
+            background-image: url("images/slide-btnL.png");
+        }
+
+        .btns .right {
+            right: 10px;
+            background-image: url("images/slide-btnR.png");
+        }
+
+        .circles {
+            position: absolute;
+            bottom: 5px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .circles li {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            background-color: lightpink;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .circles li.select {
+            background-color: deeppink;
+        }
+    </style>
+    <script src="jQuery/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var ids = 0;
+            var imgs = $('.imgs li');
+            setInterval(function () {
+                imgs.eq(ids).fadeOut(500);
+                ids++;
+                changeImgs();
+            },2000);
+
+
+            $('.right').click(function () {
+                imgs.eq(ids).stop().fadeOut(200);
+                ids++;
+                changeImgs();
+
+            });
+            $('.left').click(function () {
+                imgs.eq(ids).stop().fadeOut(200);
+                ids--;
+                console.log(ids);
+                changeImgs();
+            });
+
+            function changeImgs() {
+                console.log(ids);
+                if (ids > imgs.length - 1) {
+                    ids = 0;
+                }
+                if (ids < 0) {
+                    ids = imgs.length - 1;
+                }
+                imgs.eq(ids).stop().fadeIn(200);
+                $('.circles li').removeClass('select');
+                $('.circles li').eq(ids).addClass('select');
+
+            }
+
+        });
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="imgs">
+        <ul>
+            <li class="select"><a href="#"><img src="images/aaa.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/bbb.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/ccc.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/ddd.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/eee.jpg" alt=""></a></li>
+        </ul>
+    </div>
+    <div class="btns">
+        <span class="left"></span>
+        <span class="right"></span>
+    </div>
+    <div class="circles">
+        <ul>
+            <li class="select"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<button id="btn" class="btn btn-success btn-lg">
+    <span>请收藏</span>
+    <span class="glyphicon glyphicon-star-empty"></span>
+</button>
+<script>
+    $('#btn').click(function () {
+        if ($(this).children().eq(0).text() == '已收藏'){
+            $(this).children().eq(0).html('请收藏');
+        }else {
+            $(this).children().eq(0).html('已收藏');
+        }
+
+        $(this).children().eq(1).toggleClass('glyphicon-star-empty glyphicon-star');
+    });
+    // $('#btn').click(function () {
+    //     $(this).children().eq(0).html('请收藏');
+    //     $(this).children().eq(1).attr('class','glyphicon glyphicon-star-empty');
+    // })
+
+
+
+</script>
+</body>
+</html>

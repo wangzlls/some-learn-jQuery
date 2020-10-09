@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url("../images/body_bg.jpg") no-repeat center 0;
+}
+
+.nav {
+    width: 100%;
+    height: 48px;
+}
+
+.nav > img {
+    width: 100%;
+}
+
+.content {
+    width: 1500px;
+    height: auto;
+    background: #ebdbd4;
+    overflow: hidden;
+    margin: 200px auto 0 auto;
+}
+
+.content > .left {
+    float: left;
+    width: 200px;
+}
+
+.content > .right {
+    float: right;
+    width: 300px;
+}
+
+
+.content > .center {
+    float: left;
+    margin-left: 50px;
+    width: 900px;
+    height: 250px;
+    background: url("../images/comment.png") no-repeat 0 0;
+    /*设置图片大小*/
+    background-size: 900px 250px;
+}
+
+.center > .comment {
+    width: 859px;
+    height: 115px;
+    margin-top: 64px;
+    margin-left: 21px;
+    /*background: antiquewhite;*/
+    /*指定一个元素，允许用户调整大小：*/
+    resize: none;
+    border: none;
+    /*设置元素周围的轮廓*/
+    outline: none;
+}
+
+.center > .send {
+    width: 123px;
+    height: 45px;
+    margin-top: 4px;
+    margin-left: 759px;
+    border: none;
+    background: #fd8040;
+    color: white;
+}
+
+.content > .messageList {
+    width: 893px;
+    /*height: 1000px;*/
+    background: white;
+    float: left;
+    margin-left: 54px;
+}
+
+.messageList > .info {
+    padding: 10px 20px;
+    border-bottom: 2px solid #ccc;
+}
+
+.info > .infoText {
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+
+.info > .infoOperation {
+    width: 100%;
+    overflow: hidden;
+}
+
+.infoOperation > .infoTime {
+    float: left;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.infoOperation > .infoHandle {
+    float: right;
+    font-size: 13px;
+}
+
+.infoHandle > a {
+    text-decoration: none;
+    color: #ccc;
+    background: url("../images/icons.png") no-repeat 0 0;
+    padding-left: 25px;
+    margin-left: 10px;
+}
+
+.infoHandle > a:nth-child(2) {
+    background-position: 0 -17px;
+}
+
+.infoHandle > a:nth-child(3) {
+    background-position: 0 -34px;
+}
+
+.page {
+    width: 1500px;
+    height: 40px;
+    background: #fd8040;
+    margin: 0 auto;
+    text-align: right;
+    padding: 10px;
+    /*指定两个boxes接壤*/
+    box-sizing: border-box;
+}
+
+.page > a {
+    text-decoration: none;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 20px;
+    color: #2b2b2b;
+}
+
+
